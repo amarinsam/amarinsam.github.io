@@ -9,7 +9,7 @@ This is written in Vim
 Jotting down a few CSS rules for those newbs out there -- just feel like while this knowledge is rather rote, and not specifically algorithmic/design decision challenges, it's nevertheless important to know as knowing some of these basics can help optimize your time so you aren't sinking countless hours guessing and checking your css.  I'd recommend always adding a border: 1px solid red to your elements so you can see your layout boundaries while building.</p>
 <p>
 <p>
-Grid: Parent component for all layouts.  For all Grids, you'll generally want to have a display: grid or inline-grid property, position: relative property, grid-template-rows property, and width: 100% and height: 100% properties.<br></br>
+Grid: Parent component for all layouts.  For all Grids, you'll generally want to have a display: grid or inline-grid property, position: relative property, grid-template-rows property, and width: 100% and height: 100% properties.
 </p>
 display: inline-grid stacks all cells vertically.<br></br>  
 display: grid will stack them horizontally.  For my comparison module, I went with inline-grid.<br></br>
@@ -34,8 +34,24 @@ height: 'auto' or 'fit-content'
 <li>'auto' will set a div's height to be the height of it's content -- if the content height exceeds the container height, it will expand.</li>
 <li>'fit-content' will limit the container height to what's allowed by it's parent container.  I need to test this, but in reading, 'fit-content' may force the element to expand to fit available space, if necessary.</li>
 </ul>
-
 </p>
+<b>Columns</b><br></br>
+For your columns, you'll generally want implement a flex: number property, and a height and width property.<br></br>
+flex: number tells CSS to give the column a width relationally sized to all other columns in your parent Row.  With a Row containing 3 Columns -> Column A: flex: 1, Column B: flex: 2, Column C: flex: 1, makes all columns fill available space, and gives column B twice the with of Columns A and C.<br></br>
+height and width should be set, in order to control how they take up available space (100%, or some specific percentage).
+</p>
+<p>
+<h4>Engineering challenges</h4>
+<b>Completed</b>
+<ul>
+<li>Related products module contains *only* items with similar category</li>
+<li>User can scroll left/right through related products module using only buttons</li>
+<li>Comparison modal utilizes grid + flexbox layout</li>
+<li>Comparison modal aggregates compared product features, and each product gets a check mark next to the feature name if it matches that feature.</li>
+<li>Comparison modal only displays upon clicks of unique related products</li>
+</ul>
+I made some decisions regarding the feature 'checkmark' algorithm, where I decided to aggregate features from both items into a single list, rather than maintaining two separate lists.  Even though this involved creating additional variables and additional functions, this will make my code could be easier to understand and easily modified by another developer in the future.<br></br>
+I originally declared a scroll handler function within my related products module but Because both the related products module and outfits list need to be scrollable, I ended up refactoring my code and moving this helper function into a shared folder so that it may be reusable by both components.<br></br>
 </p>
 <p>
 <h2>3/5 -</h2> 
