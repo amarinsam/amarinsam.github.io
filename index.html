@@ -3,8 +3,42 @@ Hello World
 This is written in Vim
 
 <p>
+<h3>3/6 -</h3>
+<p>
+<b>Grid</b>
+Jotting down a few CSS rules for those newbs out there -- just feel like while this knowledge is rather rote, and not specifically algorithmic/design decision challenges, it's nevertheless important to know as knowing some of these basics can help optimize your time so you aren't sinking countless hours guessing and checking your css.  I'd recommend always adding a border: 1px solid red to your elements so you can see your layout boundaries while building.</p>
+<p>
+<p>
+Grid: Parent component for all layouts.  For all Grids, you'll generally want to have a display: grid or inline-grid property, position: relative property, grid-template-rows property, and width: 100% and height: 100% properties.<br></br>
+</p>
+display: inline-grid stacks all cells vertically.<br></br>  
+display: grid will stack them horizontally.  For my comparison module, I went with inline-grid.<br></br>
+grid-template-rows: auto auto auto 1fr declares 4 rows, which behave a bit different.  auto 3 times means that the first 3 elements will stack up on top of or next to each other, and 1fr means the last cell takes up all remaining avialable space.  1fr means 100% of available space.  Each declaration of a new property (i.e., auto, <number>fr) adds another row to your grid.<br></br>  
+position: relative lets you position all child elements relative to their containing element (i.e., all children become relative to the parent, the parent containing the position: relative attribute).<br></br>
+position: absolute is best for children, when you want to lay them out within a container.  I generally use this for all children elements within my grid container div.  position: absolute, allows you to access functionality like overlapping elements on top of one another.<br></br>
+height: 100%, width: 100% allows any containing elements to set their sizing relative to this parent grid container.<br></br>
+</p>
+</p>
+<b>Flex</b>
+<p>For all rows/columns in your grid, you'll generally want to have Row divs be container elements for Column divs.<br></br>
+The Rows will have a display:flex property, have a flex-direction: row property.<br></br>
+The Columns will have a flex: integer property, which tells you proportionally, how much space each column will take up, relative to the entire width of the Row flex div.<br></br>
+</p>
+<b>Rows</b><br></br>
+display: flex will tell CSS to use flex properties/methods when rendering this element<br></br>
+For a row, you'd likely want to implement a flex-direction: row property.  A basic template for a flex row would be as follows:<br></br>
+flex-direction: row lets you setall containing elements along an X-axis<br></br>
+width: 100% lets your flex row take up 100% of all available space
+height: 'auto' or 'fit-content' 
+<ul> 
+<li>'auto' will set a div's height to be the height of it's content -- if the content height exceeds the container height, it will expand.</li>
+<li>'fit-content' will limit the container height to what's allowed by it's parent container.  I need to test this, but in reading, 'fit-content' may force the element to expand to fit available space, if necessary.</li>
+</ul>
+
+</p>
+</p>
+<p>
 <h2>3/5 -</h2> 
-<br></br>
 I was reminded today of a few key things:
 <br></br>
 <b>UseEffect:</b> 
