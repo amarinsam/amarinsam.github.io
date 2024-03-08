@@ -1,7 +1,28 @@
 Hello World
 
 This is written in Vim
+<p>
+<h3>3/7 -</h3>
+<p>
+A top for new coders: spend some time understanding how CSS layouts work.  A bit more planning would have saved me a lot of refactoring and general headache. I'm currently working on a 'related products module', and an 'outfit' module -- both of which I'd like to be perfectly aligned with each other.  Lesson learned -- make sure to spend adequate time understanding your desired layouts, as well as what attributes need to be set for each container.  While not specifically an engineering challenge, lack of basic competency in this can create an absolute time sink.
+</p>
+<p>
+Engineering lessons of the day:<br></br>
 
+</p>
+<p>
+A few notable outcomes from today:<br></br>
+Implemented two simple helper functions to read/write to local storage.<br></br>
+Promise notes:<br></br>
+<ul><li>
+Declare a variable, assign it to the value of a an array.map function.</li>
+<li>The callback function will be an async function - the function body will declare a result variable, and assign to it the evaluated result of awaiting an API call.</li>
+<li>The result of evaluating the return statement will be a promise that is pushed to a new array which is ultimately returned and becomes the evaluated result of the initial declared variable.</li>
+<li>Declare a new variable and assign it to the evaluated result of await Promise.all(initial declared variable).</li>
+This is the process of taking an array, for each item, make an API request, and pushing those API request results (type Promises) to a new array.  This array of unfulfilled promises is then assigned to another variable, after await Promise.all(unfulfilledpromisearray) is finished resolving all promises.  This variable can now be used to in other operations.
+</ul>
+</p>
+</p>
 <p>
 <h3>3/6 -</h3>
 <p>
